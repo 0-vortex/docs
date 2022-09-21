@@ -41,13 +41,11 @@ base リポジトリを変更するとき、プルリクエストの通知も変
 
 **ヒント**:
 - 比較ビューを使用して、どの時間枠であっても比較対象として設定できます。 詳しい情報については「[コミットを比較する](/pull-requests/committing-changes-to-your-project/viewing-and-comparing-commits/comparing-commits)」を参照してください。
-- プロジェクトメンテナーはプルリクエストテンプレートをリポジトリに追加できます。 テンプレートにはプルリクエスト本文にある情報のプロンプトが含まれます。 詳しい情報については[Issue およびプルリクエストのテンプレートについて](/articles/about-issue-and-pull-request-templates)を参照してください。
+- プロジェクトメンテナーはプルリクエストテンプレートをリポジトリに追加できます。 テンプレートにはプルリクエスト本文にある情報のプロンプトが含まれます。 詳しい情報については[Issue およびPull Requestのテンプレートについて](/articles/about-issue-and-pull-request-templates)を参照してください。
 
 {% endtip %}
 
 ## プルリクエストの作成
-
-{% include tool-switcher %}
 
 {% webui %}
 
@@ -164,6 +162,7 @@ For more information on creating pull requests in {% data variables.product.prod
 ## 参考リンク
 
 - [フォークからプルリクエストを作成する](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)
+- "[Keeping your pull request in sync with the base branch](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/keeping-your-pull-request-in-sync-with-the-base-branch)"
 - [プルリクエストのベースブランチを変更する](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-base-branch-of-a-pull-request)
 - 「[サイドバーからプロジェクトボードへ Issue およびプルリクエストを追加する](/articles/adding-issues-and-pull-requests-to-a-project-board/#adding-issues-and-pull-requests-to-a-project-board-from-the-sidebar)」
 - 「[クエリパラメータによる Issue およびプルリクエストの自動化について](/issues/tracking-your-work-with-issues/creating-issues/about-automation-for-issues-and-pull-requests-with-query-parameters)」

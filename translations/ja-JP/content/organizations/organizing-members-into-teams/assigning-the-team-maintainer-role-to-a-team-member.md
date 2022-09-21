@@ -2,7 +2,7 @@
 title: Assigning the team maintainer role to a team member
 intro: You can give a team member the ability to manage team membership and settings by assigning the team maintainer role.
 redirect_from:
-  - /articles/giving-team-maintainer-permissions-to-an-organization-member-early-access-program/
+  - /articles/giving-team-maintainer-permissions-to-an-organization-member-early-access-program
   - /articles/giving-team-maintainer-permissions-to-an-organization-member
   - /github/setting-up-and-managing-organizations-and-teams/giving-team-maintainer-permissions-to-an-organization-member
   - /organizations/managing-peoples-access-to-your-organization-with-roles/giving-team-maintainer-permissions-to-an-organization-member
@@ -41,7 +41,7 @@ People with the team maintainer role can manage team membership and settings.
 Before you can promote an organization member to team maintainer, the person must already be a member of the team.
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_members_tab %}
 4. チームメンテナに昇格させる人 (一人または複数人) を選択します。 ![Organization メンバーの横のチェックボックス](/assets/images/help/teams/team-member-check-box.png)

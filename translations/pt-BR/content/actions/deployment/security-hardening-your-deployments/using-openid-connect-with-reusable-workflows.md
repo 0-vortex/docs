@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghae: issue-4757-and-5856
   ghec: '*'
+  ghes: '>=3.5'
 type: how_to
 topics:
   - Workflows
@@ -17,12 +18,6 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-
-{% note %}
-
-**Observação:** Os fluxos de trabalho reutilizáveis estão atualmente na versão beta e sujeitos a alterações.
-
-{% endnote %}
 
 ## Sobre fluxos de trabalho reutilizáveis
 

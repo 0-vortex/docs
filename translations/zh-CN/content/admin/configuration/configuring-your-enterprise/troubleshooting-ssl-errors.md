@@ -2,8 +2,8 @@
 title: 排查 SSL 错误
 intro: 如果您的设备遇到 SSL 问题，可以采取相应措施加以解决。
 redirect_from:
-  - /enterprise/admin/articles/troubleshooting-ssl-errors/
-  - /enterprise/admin/categories/dns-ssl-and-subdomain-configuration/
+  - /enterprise/admin/articles/troubleshooting-ssl-errors
+  - /enterprise/admin/categories/dns-ssl-and-subdomain-configuration
   - /enterprise/admin/installation/troubleshooting-ssl-errors
   - /enterprise/admin/configuration/troubleshooting-ssl-errors
   - /admin/configuration/troubleshooting-ssl-errors
@@ -80,3 +80,7 @@ $ cat yourdomain.com.crt bundle-certificates.crt > yourdomain.combined.crt
   ```shell
   $ ghe-ssl-ca-certificate-install -c rootCA.crt
   ```
+
+## 更新 SSL 证书
+
+您可以使用 `ghe-ssl-certificate-setup` 命令行实用工具生成新的自签名证书或更新 {% data variables.product.product_location %} 的现有 SSL 证书。 更多信息请参阅“[命令行实用程序](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-ssl-ca-certificate-setup)”。

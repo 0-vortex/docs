@@ -37,4 +37,5 @@ topics:
 
 ## 延伸阅读
 
+- "[关于 {% data variables.product.prodname_docs %} 的版本](/get-started/learning-about-github/about-versions-of-github-docs)"
 - "[从 {% data variables.product.company_short %} 支持获得帮助](/admin/enterprise-support/receiving-help-from-github-support)"

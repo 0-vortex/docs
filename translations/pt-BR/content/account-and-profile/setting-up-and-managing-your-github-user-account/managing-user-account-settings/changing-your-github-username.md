@@ -2,10 +2,10 @@
 title: Alterar seu nome de usuário do GitHub
 intro: 'Você pode alterar o nome de usuário da sua conta em {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.product.product_location %} se sua instância usar autenticação integrada{% endif %}.'
 redirect_from:
-  - /articles/how-to-change-your-username/
-  - /articles/changing-your-github-user-name/
-  - /articles/renaming-a-user/
-  - /articles/what-happens-when-i-change-my-username/
+  - /articles/how-to-change-your-username
+  - /articles/changing-your-github-user-name
+  - /articles/renaming-a-user
+  - /articles/what-happens-when-i-change-my-username
   - /articles/changing-your-github-username
   - /github/setting-up-and-managing-your-github-user-account/changing-your-github-username
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/changing-your-github-username
@@ -74,8 +74,8 @@ Após alteração do nome de usuário, os links para sua página de perfil anter
 
 ## Alterar nome de usuário
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.account_settings %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.account_settings %}
 3. Na seção "Change username" (Alterar nome de usuário), clique em **Change username** (Alterar nome de usuário). ![Change Username button](/assets/images/help/settings/settings-change-username.png){% ifversion fpt or ghec %}
 4. Leia os avisos sobre a mudança de seu nome de usuário. Se você ainda quiser alterar seu nome de usuário, clique em **I understand, let's change my username** (Compreendo, vamos alterar meu nome de usuário). ![Botão de aviso Change Username (Alterar nome de usuário)](/assets/images/help/settings/settings-change-username-warning-button.png)
 5. Digite um novo nome de usuário. ![Campo New Username (Novo nome de usuário)](/assets/images/help/settings/settings-change-username-enter-new-username.png)

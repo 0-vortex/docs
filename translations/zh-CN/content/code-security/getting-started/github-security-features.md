@@ -16,14 +16,14 @@ topics:
 
 ## 关于 {% data variables.product.prodname_dotcom %} 安全功能
 
-{% data variables.product.prodname_dotcom %} 具有安全功能，有助于在仓库和组织间保持代码和秘密安全。 某些安全功能适用于所有仓库，另一些仅适用于{% ifversion fpt or ghec %}公共仓库，以及{% endif %}具有 {% data variables.product.prodname_GH_advanced_security %} 许可的仓库。
+{% data variables.product.prodname_dotcom %} 具有安全功能，有助于在仓库和组织间保持代码和秘密安全。 {% data reusables.advanced-security.security-feature-availability %}
 
 {% data variables.product.prodname_advisory_database %} 包含您可以查看、搜索和过滤的安全漏洞列表。 {% data reusables.security-advisory.link-browsing-advisory-db %}
 
 {% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
 ## 适用于所有仓库
 {% endif %}
-{% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ### 安全策略
 
 让您的用户能够轻松地秘密报告他们在仓库中发现的安全漏洞。 更多信息请参阅“[添加安全政策到仓库](/code-security/getting-started/adding-a-security-policy-to-your-repository)”。
@@ -63,24 +63,30 @@ topics:
 您可以在仓库的 **Insights（洞察）**选项卡上找到依赖项图。 更多信息请参阅“[关于依赖关系图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)”。
 {% endif %}
 
-## 适用{% ifversion fpt or ghec %}于公共仓库以及具有 {% data variables.product.prodname_advanced_security %} 的仓库{% endif %}
+## 通过 {% data variables.product.prodname_GH_advanced_security %} 可用
 
-{% ifversion fpt or ghes or ghec %}
-这些功能{% ifversion fpt or ghec %}适用于所有公共仓库，以及由{% else %}您具有 {% endif %} {% data variables.product.prodname_advanced_security %} 许可的组织拥有的仓库。 {% data reusables.advanced-security.more-info-ghas %}
-{% endif %}
+{% data reusables.advanced-security.ghas-availability %}
 
-### {% data variables.product.prodname_code_scanning_capc %} 警报
+### {% data variables.product.prodname_code_scanning_capc %}
 
 自动检测新代码或修改代码中的安全漏洞和编码错误。 潜在的问题被高亮显示，并附有详细信息，允许您在将代码合并到默认分支之前修复它。 更多信息请参阅“[关于代码扫描](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)”。
 
-### {% data variables.product.prodname_secret_scanning_caps %} 警报
+### {% data variables.product.prodname_secret_scanning_caps %}
 
-{% ifversion fpt or ghec %}对于私人仓库，请查看{% else %}查看{% endif %} {% data variables.product.prodname_dotcom %} 在您的代码中找到的任何机密。 应将已检入仓库的令牌或凭据视为已泄露。 更多信息请参阅“[关于密钥扫描](/github/administering-a-repository/about-secret-scanning)”。
+自动检测已签入存储库的令牌或凭据。 {% ifversion fpt or ghec %}{% data variables.product.prodname_secret_scanning_caps %} 在所有公共存储库中查找泄露的机密，并通知相关服务提供商该机密可能已泄露。 有关支持的机密和服务提供商的详细信息，请参阅“[{% data variables.product.prodname_secret_scanning_caps %} 合作伙伴](/code-security/secret-scanning/secret-scanning-partners)”。{% endif %}
+{%- ifversion ghec or ghes or ghae %}
+{% ifversion ghec %}在私有存储库中，可以查看 {% elsif ghes or ghae %}可以查看{% endif %} {% data variables.product.company_short %} 在代码中找到的任何机密。 应将已签入存储库的令牌或凭据视为已泄露。{% endif %} 更多信息请参阅“[关于秘密扫描](/github/administering-a-repository/about-secret-scanning)”。
 
 {% ifversion fpt or ghes > 3.1 or ghae-issue-4864 or ghec %}
 ### 依赖项审查
 
 在合并拉取请求之前显示依赖项更改的全部影响以及任何有漏洞版本的详情。 更多信息请参阅“[关于依赖项审查](/code-security/supply-chain-security/about-dependency-review)”。
+{% endif %}
+
+{% ifversion ghec or ghes > 3.1 %}
+### 安全概述
+
+检查组织的安全配置和警报，并确定风险最大的存储库。 更多信息请参阅“[关于安全概述](/code-security/security-overview/about-the-security-overview)”。
 {% endif %}
 
 ## 延伸阅读

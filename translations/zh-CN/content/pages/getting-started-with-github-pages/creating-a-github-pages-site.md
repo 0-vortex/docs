@@ -2,10 +2,10 @@
 title: 创建 GitHub Pages 站点
 intro: '您可以在新仓库或现有仓库中创建 {% data variables.product.prodname_pages %} 站点。'
 redirect_from:
-  - /articles/creating-pages-manually/
-  - /articles/creating-project-pages-manually/
-  - /articles/creating-project-pages-from-the-command-line/
-  - /articles/creating-project-pages-using-the-command-line/
+  - /articles/creating-pages-manually
+  - /articles/creating-project-pages-manually
+  - /articles/creating-project-pages-from-the-command-line
+  - /articles/creating-project-pages-using-the-command-line
   - /articles/creating-a-github-pages-site
   - /github/working-with-github-pages/creating-a-github-pages-site
 product: '{% data reusables.gated-features.pages %}'
@@ -45,7 +45,7 @@ shortTitle: 创建 GitHub Pages 站点
 
   {% tip %}
 
-  **Tip:** If `index.html` is present, this will be used instead of `index.md`. If neither `index.html` nor `index.md` are present, `README.md` will be used.
+  **提示：** 如果存在 `index.html`，则将使用它而不是 `index.md`。 如果没有 `index.html` 或 `index.md`，将使用 `README.md`。
 
   {% endtip %}
 {% data reusables.pages.configure-publishing-source %}
@@ -53,6 +53,7 @@ shortTitle: 创建 GitHub Pages 站点
 {% data reusables.pages.sidebar-pages %}{% ifversion fpt or ghec %}
 {% data reusables.pages.choose-visibility %}{% endif %}
 {% data reusables.pages.visit-site %}
+{% data reusables.pages.check-workflow-run %}
 
 {% data reusables.pages.admin-must-push %}
 

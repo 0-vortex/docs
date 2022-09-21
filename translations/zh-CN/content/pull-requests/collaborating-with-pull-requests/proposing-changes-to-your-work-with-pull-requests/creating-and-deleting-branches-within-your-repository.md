@@ -3,7 +3,7 @@ title: 创建和删除仓库中的分支
 intro: '您可以直接在 {% data variables.product.product_name %} 上创建或删除分支。'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository
-  - /articles/deleting-branches-in-a-pull-request/
+  - /articles/deleting-branches-in-a-pull-request
   - /articles/creating-and-deleting-branches-within-your-repository
   - /github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository
 versions:
@@ -45,6 +45,6 @@ shortTitle: 创建和删除分支
 
 ## 延伸阅读
 
-- "[About branches](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)"
+- "[关于分支](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)"
 - “[查看仓库中的分支](/github/administering-a-repository/viewing-branches-in-your-repository)”
 - "[删除和恢复拉取请求中的分支](/github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request)"

@@ -1,3 +1,6 @@
+import fs from 'fs'
+import path from 'path'
+
 import express from 'express'
 import instrument from '../lib/instrument-middleware.js'
 import haltOnDroppedConnection from './halt-on-dropped-connection.js'
@@ -12,11 +15,8 @@ import csp from './csp.js'
 import cookieParser from './cookie-parser.js'
 import csrf from './csrf.js'
 import handleCsrfErrors from './handle-csrf-errors.js'
-import compression from 'compression'
-import disableCachingOnSafari from './disable-caching-on-safari.js'
-import setFastlySurrogateKey from './set-fastly-surrogate-key.js'
+import { setDefaultFastlySurrogateKey } from './set-fastly-surrogate-key.js'
 import setFastlyCacheHeaders from './set-fastly-cache-headers.js'
-import catchBadAcceptLanguage from './catch-bad-accept-language.js'
 import reqUtils from './req-utils.js'
 import recordRedirect from './record-redirect.js'
 import connectSlashes from 'connect-slashes'
@@ -27,14 +27,15 @@ import detectLanguage from './detect-language.js'
 import context from './context.js'
 import shortVersions from './contextualizers/short-versions.js'
 import redirectsExternal from './redirects/external.js'
-import helpToDocs from './redirects/help-to-docs.js'
 import languageCodeRedirects from './redirects/language-code-redirects.js'
 import handleRedirects from './redirects/handle-redirects.js'
 import findPage from './find-page.js'
+import spotContentFlaws from './spot-content-flaws.js'
 import blockRobots from './block-robots.js'
 import archivedEnterpriseVersionsAssets from './archived-enterprise-versions-assets.js'
 import events from './events.js'
 import search from './search.js'
+import healthz from './healthz.js'
 import archivedEnterpriseVersions from './archived-enterprise-versions.js'
 import robots from './robots.js'
 import earlyAccessLinks from './contextualizers/early-access-links.js'
@@ -57,9 +58,14 @@ import featuredLinks from './featured-links.js'
 import learningTrack from './learning-track.js'
 import next from './next.js'
 import renderPage from './render-page.js'
+import assetPreprocessing from './asset-preprocessing.js'
+import archivedAssetRedirects from './archived-asset-redirects.js'
+import favicons from './favicons.js'
+import setStaticAssetCaching from './static-asset-caching.js'
 
-const { NODE_ENV } = process.env
+const { DEPLOYMENT_ENV, NODE_ENV } = process.env
 const isDevelopment = NODE_ENV === 'development'
+const isAzureDeployment = DEPLOYMENT_ENV === 'azure'
 const isTest = NODE_ENV === 'test' || process.env.GITHUB_ACTIONS === 'true'
 
 // Catch unhandled promise rejections and passing them to Express's error handler
@@ -68,17 +74,109 @@ const asyncMiddleware = (fn) => (req, res, next) => {
   Promise.resolve(fn(req, res, next)).catch(next)
 }
 
+// The IP address that Fastly regards as the true client making the request w/ fallback to req.ip
+morgan.token('client-ip', (req) => req.headers['Fastly-Client-IP'] || req.ip)
+const productionLogFormat = `:client-ip - ":method :url" :status - :response-time ms`
+
 export default function (app) {
   // *** Request connection management ***
   if (!isTest) app.use(timeout)
   app.use(abort)
 
-  // *** Development tools ***
-  app.use(morgan('dev', { skip: (req, res) => !isDevelopment }))
+  // *** Request logging ***
+  // Enabled in development and azure deployed environments
+  // Not enabled in Heroku because the Heroku router + papertrail already logs the request information
+  app.use(
+    morgan(isAzureDeployment ? productionLogFormat : 'dev', {
+      skip: (req, res) => !(isDevelopment || isAzureDeployment),
+    })
+  )
 
   // *** Observability ***
   if (process.env.DD_API_KEY) {
     app.use(datadog)
+  }
+
+  // Must appear before static assets and all other requests
+  // otherwise we won't be able to benefit from that functionality
+  // for static assets as well.
+  app.use(setDefaultFastlySurrogateKey)
+
+  // Must come before `csrf` otherwise you get a Set-Cookie on successful
+  // asset requests. And it can come before `rateLimit` because if it's a
+  // 200 OK, the rate limiting won't matter anyway.
+  // archivedEnterpriseVersionsAssets must come before static/assets
+  app.use(
+    asyncMiddleware(
+      instrument(archivedEnterpriseVersionsAssets, './archived-enterprise-versions-assets')
+    )
+  )
+
+  app.use(favicons)
+
+  // Any static URL that contains some sort of checksum that makes it
+  // unique gets the "manual" surrogate key. If it's checksummed,
+  // it's bound to change when it needs to change. Otherwise,
+  // we want to make sure it doesn't need to be purged just because
+  // there's a production deploy.
+  // Note, for `/assets/cb-*...` requests,
+  // this needs to come before `assetPreprocessing` because
+  // the `assetPreprocessing` middleware will rewrite `req.url` if
+  // it applies.
+  app.use(setStaticAssetCaching)
+
+  // Must come before any other middleware for assets
+  app.use(archivedAssetRedirects)
+
+  // This must come before the express.static('assets') middleware.
+  app.use(assetPreprocessing)
+
+  app.use(
+    '/assets/',
+    express.static('assets', {
+      index: false,
+      etag: false,
+      // Can be aggressive because images inside the content get unique
+      // URLs with a cache busting prefix.
+      maxAge: '7 days',
+      immutable: process.env.NODE_ENV !== 'development',
+      // This means, that if you request a file that starts with /assets/
+      // any file doesn't exist, don't bother (NextJS) rendering a
+      // pretty HTML error page.
+      fallthrough: false,
+    })
+  )
+  app.use(
+    '/public/',
+    express.static('data/graphql', {
+      index: false,
+      etag: false,
+      maxAge: '7 days', // A bit longer since releases are more sparse
+      // See note about about use of 'fallthrough'
+      fallthrough: false,
+    })
+  )
+
+  // In development, let NextJS on-the-fly serve the static assets.
+  // But in production, don't let NextJS handle any static assets
+  // because they are costly to generate (the 404 HTML page)
+  // and it also means that a CSRF cookie has to be generated.
+  if (process.env.NODE_ENV !== 'development') {
+    const assetDir = path.join('.next', 'static')
+    if (!fs.existsSync(assetDir))
+      throw new Error(`${assetDir} directory has not been generated. Run 'npm run build' first.`)
+
+    app.use(
+      '/_next/static/',
+      express.static(assetDir, {
+        index: false,
+        etag: false,
+        maxAge: '365 days',
+        immutable: true,
+        // See note about about use of 'fallthrough'
+        fallthrough: false,
+      })
+    )
   }
 
   // *** Early exits ***
@@ -87,7 +185,7 @@ export default function (app) {
   app.set('trust proxy', 1)
   app.use(rateLimit)
   app.use(instrument(handleInvalidPaths, './handle-invalid-paths'))
-  app.use(instrument(handleNextDataPath, './handle-next-data-path'))
+  app.use(asyncMiddleware(instrument(handleNextDataPath, './handle-next-data-path')))
 
   // *** Security ***
   app.use(cors)
@@ -108,10 +206,6 @@ export default function (app) {
 
   // *** Headers ***
   app.set('etag', false) // We will manage our own ETags if desired
-  app.use(compression())
-  app.use(disableCachingOnSafari)
-  app.use(setFastlySurrogateKey)
-  app.use(catchBadAcceptLanguage)
 
   // *** Config and context for redirects ***
   app.use(reqUtils) // Must come before record-redirect and events
@@ -120,54 +214,33 @@ export default function (app) {
   app.use(asyncMiddleware(instrument(context, './context'))) // Must come before early-access-*, handle-redirects
   app.use(asyncMiddleware(instrument(shortVersions, './contextualizers/short-versions'))) // Support version shorthands
 
+  // Must come before handleRedirects.
+  // This middleware might either redirect to serve something.
+  app.use(asyncMiddleware(instrument(archivedEnterpriseVersions, './archived-enterprise-versions')))
+
   // *** Redirects, 3xx responses ***
   // I ordered these by use frequency
   app.use(connectSlashes(false))
   app.use(instrument(redirectsExternal, './redirects/external'))
-  app.use(instrument(helpToDocs, './redirects/help-to-docs'))
   app.use(instrument(languageCodeRedirects, './redirects/language-code-redirects')) // Must come before contextualizers
   app.use(instrument(handleRedirects, './redirects/handle-redirects')) // Must come before contextualizers
 
   // *** Config and context for rendering ***
   app.use(asyncMiddleware(instrument(findPage, './find-page'))) // Must come before archived-enterprise-versions, breadcrumbs, featured-links, products, render-page
+  app.use(asyncMiddleware(instrument(spotContentFlaws, './spot-content-flaws'))) // Must come after findPage
   app.use(instrument(blockRobots, './block-robots'))
 
   // Check for a dropped connection before proceeding
   app.use(haltOnDroppedConnection)
 
   // *** Rendering, 2xx responses ***
-  // I largely ordered these by use frequency
-  // archivedEnterpriseVersionsAssets must come before static/assets
-  app.use(
-    asyncMiddleware(
-      instrument(archivedEnterpriseVersionsAssets, './archived-enterprise-versions-assets')
-    )
-  )
-  app.use(
-    '/assets',
-    express.static('assets', {
-      index: false,
-      etag: false,
-      lastModified: false,
-      maxAge: '1 day', // Relatively short in case we update images
-    })
-  )
-  app.use(
-    '/public',
-    express.static('data/graphql', {
-      index: false,
-      etag: false,
-      lastModified: false,
-      maxAge: '7 days', // A bit longer since releases are more sparse
-    })
-  )
   app.use('/events', asyncMiddleware(instrument(events, './events')))
   app.use('/search', asyncMiddleware(instrument(search, './search')))
+  app.use('/healthz', asyncMiddleware(instrument(healthz, './healthz')))
 
   // Check for a dropped connection before proceeding (again)
   app.use(haltOnDroppedConnection)
 
-  app.use(asyncMiddleware(instrument(archivedEnterpriseVersions, './archived-enterprise-versions')))
   app.use(instrument(robots, './robots'))
   app.use(
     /(\/.*)?\/early-access$/,
@@ -186,7 +259,7 @@ export default function (app) {
   // *** Preparation for render-page: contextualizers ***
   app.use(asyncMiddleware(instrument(releaseNotes, './contextualizers/release-notes')))
   app.use(instrument(graphQL, './contextualizers/graphql'))
-  app.use(instrument(rest, './contextualizers/rest'))
+  app.use(asyncMiddleware(instrument(rest, './contextualizers/rest')))
   app.use(instrument(webhooks, './contextualizers/webhooks'))
   app.use(asyncMiddleware(instrument(whatsNewChangelog, './contextualizers/whats-new-changelog')))
   app.use(instrument(layout, './contextualizers/layout'))

@@ -23,9 +23,9 @@ miniTocMaxHeadingLevel: 3
 
 ### 速率限制
 
-搜索 API 有自定义速率限制。 对于使用[基本身份验证](/rest#authentication)、[OAuth](/rest#authentication) 或[客户端 ID 和密码](/rest#increasing-the-unauthenticated-rate-limit-for-oauth-applications)的请求，您每分钟最多可以提出 30 个请求。 对于未经身份验证的请求，速率限制允许您每分钟最多提出 10 个请求。
-
 {% data reusables.enterprise.rate_limit %}
+
+搜索 API 有自定义速率限制。 对于使用[基本身份验证](/rest#authentication)、[OAuth](/rest#authentication) 或[客户端 ID 和密码](/rest#increasing-the-unauthenticated-rate-limit-for-oauth-applications)的请求，您每分钟最多可以提出 30 个请求。 对于未经身份验证的请求，速率限制允许您每分钟最多提出 10 个请求。
 
 请参阅[速率限制文档](/rest/reference/rate-limit)，以详细了解如何确定您的当前速率限制状态。
 
@@ -51,7 +51,7 @@ GitHub Octocat in:readme user:defunkt
 const queryString = 'q=' + encodeURIComponent('GitHub Octocat in:readme user:defunkt');
 ```
 
-有关可用限定符及其格式的完整列表和使用示例，请参阅“[在 GitHub 上搜索](/articles/searching-on-github/)”。 有关如何使用运算符匹配特定数量、日期或排除结果，请参阅“[了解搜索语法](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax/)”。
+有关可用限定符及其格式的完整列表和使用示例，请参阅“[在 GitHub 上搜索](/search-github/searching-on-github)”。 有关如何使用运算符匹配特定数量、日期或排除结果，请参阅“[了解搜索语法](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax/)”。
 
 ### 查询长度限制
 

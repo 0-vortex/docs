@@ -3,7 +3,7 @@ title: 管理主题设置
 intro: '通过设置主题首选项以遵循系统设置或始终使用浅色模式或深色模式，您可以管理 {% data variables.product.product_name %} 的外观，'
 versions:
   fpt: '*'
-  ghae: next
+  ghae: '*'
   ghes: '>=3.2'
   ghec: '*'
 topics:
@@ -28,10 +28,8 @@ shortTitle: 管理主题设置
 
 {% endif %}
 
-{% data reusables.user_settings.access_settings %}
-1. 在用户设置侧边栏中，单击 **Appearance（外观）**。
-
-   ![用户设置侧边栏中的"外观"选项卡](/assets/images/help/settings/appearance-tab.png)
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.appearance-settings %}
 
 1. Under "Theme mode", select the drop-down menu, then click a theme preference.
 

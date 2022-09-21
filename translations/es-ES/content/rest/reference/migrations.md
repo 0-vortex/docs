@@ -8,6 +8,8 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
+  ghes: '>3.3'
+  ghae: issue-6184
 topics:
   - API
 miniTocMaxHeadingLevel: 3
@@ -19,7 +21,7 @@ miniTocMaxHeadingLevel: 3
 
 ## Organización
 
-La API de Migraciones solo está disponible para los propietarios autenticados de la organización. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#permission-levels-for-an-organization)" and "[Other authentication methods](/rest/overview/other-authentication-methods)."
+La API de Migraciones solo está disponible para los propietarios autenticados de la organización. Para obtener más información, consulta las secciones "[Roles en una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#permission-levels-for-an-organization)" y "[Otros métodos de autenticación](/rest/overview/other-authentication-methods)".
 
 {% data variables.migrations.organization_migrations_intro %}
 
@@ -27,6 +29,7 @@ La API de Migraciones solo está disponible para los propietarios autenticados d
   {% if operation.subcategory == 'orgs' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% ifversion fpt or ghec %}
 ## Importaciones de Código Fuente
 
 {% data variables.migrations.source_imports_intro %}
@@ -111,7 +114,7 @@ Se puede ver un ejemplo más detallado en este diagrama:
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'source-imports' %}{% include rest_operation %}{% endif %}
 {% endfor %}
-
+{% endif %}
 ## Usuario
 
 La API de migraciones de usuario solo está disponible para los propietarios de cuentas autenticadas. Para obtener más información, consulta la sección "[Otros métodos de autenticación](/rest/overview/other-authentication-methods)".

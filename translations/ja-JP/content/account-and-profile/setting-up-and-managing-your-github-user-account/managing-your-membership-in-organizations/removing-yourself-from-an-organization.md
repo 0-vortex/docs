@@ -2,7 +2,7 @@
 title: Organization から自分を削除する
 intro: あなたは、ある Organization の外部コラボレーターまたはメンバーになっている場合、その Organization からいつでも離脱できます。
 redirect_from:
-  - /articles/how-do-i-remove-myself-from-an-organization/
+  - /articles/how-do-i-remove-myself-from-an-organization
   - /articles/removing-yourself-from-an-organization
   - /github/setting-up-and-managing-your-github-user-account/removing-yourself-from-an-organization
   - /github/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/removing-yourself-from-an-organization
@@ -28,6 +28,6 @@ shortTitle: Leave an organization
 
 {% endif %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.organizations %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.organizations %}
 3. [Organizations] の下で、自分を削除する Organization を見つけ、[**Leave**] をクリックします。 ![ロールが表示され、その横に [Leave] ボタンがある](/assets/images/help/organizations/context-leave-organization-with-roles-shown.png)

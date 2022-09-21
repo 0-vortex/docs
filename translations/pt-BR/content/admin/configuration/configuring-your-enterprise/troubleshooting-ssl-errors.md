@@ -2,8 +2,8 @@
 title: Solução de problemas de SSL
 intro: 'Em caso de problemas de SSL com seu appliance, veja o que você pode fazer para resolvê-los.'
 redirect_from:
-  - /enterprise/admin/articles/troubleshooting-ssl-errors/
-  - /enterprise/admin/categories/dns-ssl-and-subdomain-configuration/
+  - /enterprise/admin/articles/troubleshooting-ssl-errors
+  - /enterprise/admin/categories/dns-ssl-and-subdomain-configuration
   - /enterprise/admin/installation/troubleshooting-ssl-errors
   - /enterprise/admin/configuration/troubleshooting-ssl-errors
   - /admin/configuration/troubleshooting-ssl-errors
@@ -80,3 +80,7 @@ Se o seu appliance do {% data variables.product.prodname_ghe_server %} interage 
   ```shell
   $ ghe-ssl-ca-certificate-install -c rootCA.crt
   ```
+
+## Atualizando um certificado SSL
+
+É possível gerar um novo certificado autoassinado ou atualizar um certificado SSL existente para {% data variables.product.product_location %} com o utilitário da linha de comando `ghe-ssl-certificate-setup`. Para obter mais informações, consulte "[Utilitários de linha de comando](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-ssl-ca-certificate-setup)".

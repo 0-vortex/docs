@@ -3,7 +3,7 @@ title: 关闭项目板
 intro: 如果您已完成项目板中所有任务或不再需要使用项目板，可以关闭项目板。
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/closing-a-project-board
-  - /articles/closing-a-project/
+  - /articles/closing-a-project
   - /articles/closing-a-project-board
   - /github/managing-your-work-on-github/closing-a-project-board
 versions:

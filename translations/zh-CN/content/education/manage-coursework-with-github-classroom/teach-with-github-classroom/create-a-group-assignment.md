@@ -3,6 +3,7 @@ title: 创建组分配
 intro: 您可以为参加您课程的学生团队创建协作作业。
 versions:
   fpt: '*'
+permissions: 'Organization owners who are admins for a classroom can create and manage group assignments for a classroom. {% data reusables.classroom.classroom-admins-link %}'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/create-group-assignments
   - /education/manage-coursework-with-github-classroom/create-a-group-assignment
@@ -125,6 +126,16 @@ redirect_from:
 <div class="procedural-image-wrapper">
   <img alt="组分配" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignment-group-hero.png">
 </div>
+
+## 监控学生的进度
+作业概述页显示有关作业接受和团队进度的信息。 根据作业的配置，您可能有不同的摘要信息。
+
+- **团队总数**：已创建的团队数。
+- **名册学生**：教室名册上的学生人数。
+- **不在团队的学生**：课堂名册上尚未加入团队的学生人数。
+-  **接受的团队**：已接受此任务的团队数。
+-  **作业提交**：已提交作业的团队数。 在作业截止日期触发提交。
+-  **通过团队**：当前通过此作业的自动评分测试的团队数。
 
 ## 后续步骤
 

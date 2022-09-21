@@ -45,7 +45,7 @@ Pull Requestには以下のリンク関係が含まれる可能性がありま�
 | `review_comments` | Pull Requestの [レビューコメント](/rest/reference/pulls#comments) の API ロケーション。                                            |
 | `review_comment`  | Pull Requestのリポジトリで、[レビューコメント](/rest/reference/pulls#comments)の API ロケーションを構築するための[URL テンプレート](/rest#hypermedia)。 |
 | `commits`         | Pull Requestの [コミット](#list-commits-on-a-pull-request) の API ロケーション。                                               |
-| `statuses`        | Pull Requestの[コミットステータス](/rest/reference/repos#statuses)、すなわち`head` ブランチのステータスの API ロケーション。                       |
+| `statuses`        | Pull Requestの[コミットステータス](/rest/reference/commits#commit-statuses)、すなわち`head` ブランチのステータスの API ロケーション。              |
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
@@ -61,7 +61,7 @@ Pull Requestレビューは、Pull Request上のPull Requestレビューコメ�
 
 ## レビューコメント
 
-Pull Requestレビューコメントは、Pull Requestのレビュー中に unified 形式の diff の一部に付けられたコメントです。 コミットコメントおよび Issue コメントは、Pull Requestレビューコメントとは異なります。 コミットコメントはコミットに直接付けるもので、Issue コメントは、unified 形式の diff の一部を参照することなく付けるものです。 詳しい情報については、「[コミットコメントの作成](/rest/reference/repos#create-a-commit-comment)」および「[Issue コメントの作成](/rest/reference/issues#create-an-issue-comment)」を参照してください。
+Pull Requestレビューコメントは、Pull Requestのレビュー中に unified 形式の diff の一部に付けられたコメントです。 コミットコメントおよび Issue コメントは、Pull Requestレビューコメントとは異なります。 コミットコメントはコミットに直接付けるもので、Issue コメントは、unified 形式の diff の一部を参照することなく付けるものです。 詳しい情報については、「[コミットコメントの作成](/rest/reference/commits#create-a-commit-comment)」および「[Issue コメントの作成](/rest/reference/issues#create-an-issue-comment)」を参照してください。
 
 ### Pull Requestレビューコメントのカスタムメディアタイプ
 

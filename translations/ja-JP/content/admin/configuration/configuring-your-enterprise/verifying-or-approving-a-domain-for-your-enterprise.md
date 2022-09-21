@@ -1,6 +1,6 @@
 ---
 title: Verifying or approving a domain for your enterprise
-shortTitle: Verify or approve a domain
+shortTitle: ドメインの検証もしくは承認
 intro: 'You can verify your ownership of domains with {% data variables.product.company_short %} to confirm the identity of organizations owned by your enterprise account. You can also approve domains where organization members can receive email notifications.'
 product: '{% data reusables.gated-features.verify-and-approve-domain %}'
 versions:
@@ -82,7 +82,7 @@ Enterprise アカウントのドメイン検証するには、ドメインホス
 {% data reusables.organizations.domains-approve-it-instead %}
 {% data reusables.organizations.domains-approve-domain %}
 
-## Removing an approved or verified domain
+## 検証済みあるいは承認済みのドメインの削除
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

@@ -3,7 +3,7 @@ title: Gerenciar as configurações de temas
 intro: 'Você pode gerenciar como {% data variables.product.product_name %} se parece com você definindo uma preferência de tema que segue as configurações do seu sistema ou sempre usa um modo claro ou escuro.'
 versions:
   fpt: '*'
-  ghae: next
+  ghae: '*'
   ghes: '>=3.2'
   ghec: '*'
 topics:
@@ -28,10 +28,8 @@ Você pode querer usar um tema escuro para reduzir o consumo de energia em certo
 
 {% endif %}
 
-{% data reusables.user_settings.access_settings %}
-1. Na barra lateral de configurações do usuário, clique em **Aparência**.
-
-   ![Aba "Aparência" na barra lateral de configurações do usuário](/assets/images/help/settings/appearance-tab.png)
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.appearance-settings %}
 
 1. Em "Modo do tema", selecione o menu suspenso e clique em uma preferência de tema.
 

@@ -1,20 +1,20 @@
 ---
 title: Bajar de categoría tu suscripción de GitHub
-intro: 'You can downgrade the subscription for any type of account on {% data variables.product.product_location %} at any time.'
+intro: 'Puedes bajar tu suscripción de nivel en cualquier tipo de cuenta de {% data variables.product.product_location %} y en cualquier momento.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/downgrading-your-github-subscription
-  - /articles/downgrading-your-personal-account-s-billing-plan/
-  - /articles/how-do-i-cancel-my-account/
-  - /articles/downgrading-a-user-account-to-free/
-  - /articles/removing-paid-seats-from-your-organization/
-  - /articles/downgrading-your-organization-s-paid-seats/
-  - /articles/downgrading-your-organization-s-billing-plan/
-  - /articles/downgrading-an-organization-with-per-seat-pricing-to-free/
-  - /articles/downgrading-an-organization-with-per-repository-pricing-to-free/
-  - /articles/downgrading-your-organization-to-free/
-  - /articles/downgrading-your-organization-from-the-business-plan-to-the-team-plan/
-  - /articles/downgrading-your-organization-from-github-business-cloud-to-the-team-plan/
-  - /articles/downgrading-your-github-billing-plan/
+  - /articles/downgrading-your-personal-account-s-billing-plan
+  - /articles/how-do-i-cancel-my-account
+  - /articles/downgrading-a-user-account-to-free
+  - /articles/removing-paid-seats-from-your-organization
+  - /articles/downgrading-your-organization-s-paid-seats
+  - /articles/downgrading-your-organization-s-billing-plan
+  - /articles/downgrading-an-organization-with-per-seat-pricing-to-free
+  - /articles/downgrading-an-organization-with-per-repository-pricing-to-free
+  - /articles/downgrading-your-organization-to-free
+  - /articles/downgrading-your-organization-from-the-business-plan-to-the-team-plan
+  - /articles/downgrading-your-organization-from-github-business-cloud-to-the-team-plan
+  - /articles/downgrading-your-github-billing-plan
   - /articles/downgrading-your-github-subscription
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/downgrading-your-github-subscription
 versions:
@@ -37,8 +37,8 @@ Cuando bajas de nivel tu suscricpión de cuenta de usuario o de organización, l
 
 Si bajas tu cuenta de usuario de nivel desde {% data variables.product.prodname_pro %} a {% data variables.product.prodname_free_user %}, esta perderá acceso a las herramientas avanzadas de revisión de código en los repositorios privados. {% data reusables.gated-features.more-info %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 1. Debajo de "Plan actual", utiliza el menú desplegable **Editar** y haz clic en **Bajar de categoría a gratuito**. ![Botón Downgrade to free (Bajar de categoría a gratis)](/assets/images/help/billing/downgrade-to-free.png)
 5. Lee la información sobre de las características a las cuales perderá acceso tu cuenta de usuario en tu siguiente fecha de facturación, y luego da clic en **Entiendo. Bajar de nivel**. ![Botón de proceder con la baja de categoría](/assets/images/help/billing/continue-with-downgrade.png)
 
@@ -84,5 +84,4 @@ Para reducir el número de asientos pagos que usa tu organización, puedes elimi
 - "Productos de [{% data variables.product.prodname_dotcom %}](/articles/github-s-products)"
 - "[¿Cómo afecta subir o bajar de categoría al proceso de facturación?](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process)"
 - "[Acerca de la facturación en {% data variables.product.prodname_dotcom %}](/articles/about-billing-on-github)".
-- "[Eliminar un método de pago](/articles/removing-a-payment-method)"
 - "[Acerca del precio por usuario](/articles/about-per-user-pricing)"

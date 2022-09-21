@@ -2,7 +2,7 @@
 title: Excluir sua conta de usuário
 intro: 'Você pode excluir sua conta de usuário do {% data variables.product.product_name %} a qualquer momento.'
 redirect_from:
-  - /articles/deleting-a-user-account/
+  - /articles/deleting-a-user-account
   - /articles/deleting-your-user-account
   - /github/setting-up-and-managing-your-github-user-account/deleting-your-user-account
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/deleting-your-user-account
@@ -38,8 +38,8 @@ Antes de excluir sua conta de usuário, faça uma cópia de todos os repositóri
 
 ## Excluir sua conta de usuário
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.account_settings %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.account_settings %}
 3. Na parte inferior da página Account Settings (Configurações da conta), em "Delete account" (Excluir conta), clique em **Delete your account** (Excluir sua conta). Para poder excluir sua conta de usuário:
     - Se você for o único proprietário da organização, transfira a propriedade para outra pessoa ou exclua sua organização.
     - Caso haja outros proprietários na organização, remova a si mesmo da organização. ![Botão Account deletion (Exclusão de conta)](/assets/images/help/settings/settings-account-delete.png)

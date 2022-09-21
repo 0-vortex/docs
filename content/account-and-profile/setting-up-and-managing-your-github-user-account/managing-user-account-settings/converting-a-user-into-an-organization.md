@@ -1,8 +1,8 @@
 ---
 title: Converting a user into an organization
 redirect_from:
-  - /articles/what-is-the-difference-between-create-new-organization-and-turn-account-into-an-organization/
-  - /articles/explaining-the-account-transformation-warning/
+  - /articles/what-is-the-difference-between-create-new-organization-and-turn-account-into-an-organization
+  - /articles/explaining-the-account-transformation-warning
   - /articles/converting-a-user-into-an-organization
   - /github/setting-up-and-managing-your-github-user-account/converting-a-user-into-an-organization
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/converting-a-user-into-an-organization
@@ -45,8 +45,8 @@ You can also convert your personal user account directly into an organization. C
 
 1. Create a new personal account, which you'll use to sign into GitHub and access the organization and your repositories after you convert.
 2.  [Leave any organizations](/articles/removing-yourself-from-an-organization) the user account you're converting has joined.
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.organizations %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.organizations %}
 5. Under "Transform account", click **Turn <username> into an organization**.
  	![Organization conversion button](/assets/images/help/settings/convert-to-organization.png)
 6. In the Account Transformation Warning dialog box, review and confirm the conversion. Note that the information in this box is the same as the warning at the top of this article.

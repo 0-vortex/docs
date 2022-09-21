@@ -2,7 +2,7 @@
 title: Remover a si mesmo de uma organização
 intro: 'Se você for um colaborador externo ou um integrante de uma organização, poderá sair da organização a qualquer momento.'
 redirect_from:
-  - /articles/how-do-i-remove-myself-from-an-organization/
+  - /articles/how-do-i-remove-myself-from-an-organization
   - /articles/removing-yourself-from-an-organization
   - /github/setting-up-and-managing-your-github-user-account/removing-yourself-from-an-organization
   - /github/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/removing-yourself-from-an-organization
@@ -28,6 +28,6 @@ Para obter mais informações, consulte "[Transferir a propriedade da organizaç
 
 {% endif %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.organizations %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.organizations %}
 3. Em "Organizations" (Organizações), encontre a organização da qual deseja remover a si mesmo, depois clique em **Leave** (Sair). ![Botão Leave organization (Sair da organização) mostrando as funções](/assets/images/help/organizations/context-leave-organization-with-roles-shown.png)

@@ -18,7 +18,7 @@ shortTitle: Manage auto merge
 
 ## 自動マージについて
 
-リポジトリ内でプルリクエストの自動マージを許可すると、書き込み権限を持つユーザは、マージの要件がすべて満たされた際に、リポジトリ内の個々のプルリクエストを、自動的にマージするよう設定できます。 {% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}書き込み権限を持たないユーザが、自動マージが有効なプルリクエストに変更をプッシュすると、そのプルリクエストに対する自動マージが無効となります。 {% endif %}詳しい情報については、「[プルリクエストを自動的にマージする](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)」を参照してください。
+リポジトリ内でプルリクエストの自動マージを許可すると、書き込み権限を持つユーザは、マージの要件がすべて満たされた際に、リポジトリ内の個々のプルリクエストを、自動的にマージするよう設定できます。 {% ifversion fpt or ghae or ghes > 3.1 or ghec %}If someone who does not have write permissions pushes changes to a pull request that has auto-merge enabled, auto-merge will be disabled for that pull request. {% endif %}詳しい情報については、「[プルリクエストを自動的にマージする](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)」を参照してください。
 
 ## 自動マージを管理する
 
@@ -26,4 +26,4 @@ shortTitle: Manage auto merge
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. [Merge button] の下にある [**Allow auto-merge**] を選択または選択解除します。 ![自動マージを許可または禁止するチェックボックス](/assets/images/help/pull_requests/allow-auto-merge-checkbox.png)
+1. Under {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6069 %}"Pull Requests"{% else %}"Merge button"{% endif %}, select or deselect **Allow auto-merge**. ![自動マージを許可または禁止するチェックボックス](/assets/images/help/pull_requests/allow-auto-merge-checkbox.png)

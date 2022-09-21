@@ -2,7 +2,7 @@
 title: 从组织中删除自己
 intro: 如果您是外部协作者或组织成员，您可以随时离开组织。
 redirect_from:
-  - /articles/how-do-i-remove-myself-from-an-organization/
+  - /articles/how-do-i-remove-myself-from-an-organization
   - /articles/removing-yourself-from-an-organization
   - /github/setting-up-and-managing-your-github-user-account/removing-yourself-from-an-organization
   - /github/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/removing-yourself-from-an-organization
@@ -28,6 +28,6 @@ shortTitle: 离开组织
 
 {% endif %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.organizations %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.organizations %}
 3. 在“Organizations（组织）”下，找到您想要从中删除自己的组织，然后单击 **Leave（离开）**。 ![显示角色的离开组织按钮](/assets/images/help/organizations/context-leave-organization-with-roles-shown.png)

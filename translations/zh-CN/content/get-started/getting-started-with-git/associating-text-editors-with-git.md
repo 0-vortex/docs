@@ -2,9 +2,9 @@
 title: 关联文本编辑器与 Git
 intro: 使用文本编辑器打开文件并通过 Git 编辑。
 redirect_from:
-  - /textmate/
-  - /articles/using-textmate-as-your-default-editor/
-  - /articles/using-sublime-text-2-as-your-default-editor/
+  - /textmate
+  - /articles/using-textmate-as-your-default-editor
+  - /articles/using-sublime-text-2-as-your-default-editor
   - /articles/associating-text-editors-with-git
   - /github/using-git/associating-text-editors-with-git
   - /github/getting-started-with-github/associating-text-editors-with-git
@@ -49,7 +49,7 @@ shortTitle: 关联文本编辑器
 ## 使用 TextMate 作为编辑器
 
 1. 安装 [TextMate](https://macromates.com/)。
-2. 安装 TextMate 的 `mate` shell 实用程序。 更多信息请参阅 TextMate 文档中的“[mate 和 rmate](https://macromates.com/blog/2011/mate-and-rmate/)”。
+2. 安装 TextMate 的 `mate` shell 实用程序。 更多信息请参阅 TextMate 文档中的“[`mate` 和 `rmate`](https://macromates.com/blog/2011/mate-and-rmate/)”。
 {% data reusables.command_line.open_the_multi_os_terminal %}
 4. 输入此命令：
   ```shell

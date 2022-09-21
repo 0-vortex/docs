@@ -33,7 +33,7 @@ Organization のワークフローをすべて無効にすることも、Organiz
 
 {% note %}
 
-**注釈:** Organizationが、優先ポリシーのある Enterprise アカウントによって管理されている場合、これらの設定を管理できない場合があります。 For more information, see "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise)."
+**注釈:** Organizationが、優先ポリシーのある Enterprise アカウントによって管理されている場合、これらの設定を管理できない場合があります。 詳しい情報については「[Enterpriseでの{% data variables.product.prodname_actions %}のポリシーの施行](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise)」を参照してください。
 
 {% endnote %}
 
@@ -51,7 +51,7 @@ Organization のワークフローをすべて無効にすることも、Organiz
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions %}
 1. [**Policies**] で [**Allow select actions**] を選択し、必要なアクションをリストに追加します。
-   {%- ifversion ghes %}
+   {%- ifversion ghes > 3.0 %}
    ![許可リストにアクションを追加する](/assets/images/help/organizations/actions-policy-allow-list.png)
    {%- else %}
    ![許可リストにアクションを追加する](/assets/images/enterprise/github-ae/organizations/actions-policy-allow-list.png)
@@ -63,7 +63,7 @@ Organization のワークフローをすべて無効にすることも、Organiz
 
 {% data reusables.actions.workflow-run-approve-public-fork %}
 
-You can configure this behavior for an organization using the procedure below. この設定を変更すると、Enterpriseレベルでの設定が上書きされます。
+Organizationのこの動作は、以下の手順で設定できます。 この設定を変更すると、Enterpriseレベルでの設定が上書きされます。
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -78,6 +78,10 @@ You can configure this behavior for an organization using the procedure below. �
 
 {% data reusables.github-actions.private-repository-forks-overview %}
 
+{% ifversion ghec or ghae or ghes %}Enterpriseでポリシーが無効化されていると、それをOrganizationで有効化することはできません。{% endif %}Organizationでポリシーが無効化されていると、それをリポジトリで有効化することはできません。 Organizationがポリシーを有効化していると、そのポリシーを個々のリポジトリで無効化することはできません。
+
+{% data reusables.github-actions.private-repository-forks-options %}
+
 ### Organization のプライベートフォークポリシーを設定する
 
 {% data reusables.profile.access_org %}
@@ -86,7 +90,7 @@ You can configure this behavior for an organization using the procedure below. �
 {% data reusables.github-actions.private-repository-forks-configure %}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ## Organizationに対する`GITHUB_TOKEN`の権限の設定
 
 {% data reusables.github-actions.workflow-permissions-intro %}

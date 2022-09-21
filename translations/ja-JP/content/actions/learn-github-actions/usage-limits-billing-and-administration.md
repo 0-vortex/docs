@@ -7,7 +7,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Billing
@@ -16,19 +15,25 @@ shortTitle: Workflow billing & limits
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## {% data variables.product.prodname_actions %}の支払いについて
+
+{% data reusables.repositories.about-github-actions %} For more information, see "[Understanding {% data variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions){% ifversion fpt %}."{% elsif ghes or ghec %}" and "[About {% data variables.product.prodname_actions %} for enterprises](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)."{% endif %}
 
 {% ifversion fpt or ghec %}
 {% data reusables.github-actions.actions-billing %} 詳細は「[{% data variables.product.prodname_actions %} の支払いについて](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)」を参照してください。
 {% else %}
-GitHub Actions usage is free for {% data variables.product.prodname_ghe_server %}s that use self-hosted runners.
+GitHub Actions usage is free for {% data variables.product.prodname_ghe_server %} instances that use self-hosted runners. 詳しい情報については「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners)」を参照してください。
 {% endif %}
+
+
+{% ifversion fpt or ghec %}
 
 ## 利用の可否
 
 {% data variables.product.prodname_actions %} is available on all {% data variables.product.prodname_dotcom %} products, but {% data variables.product.prodname_actions %} is not available for private repositories owned by accounts using legacy per-repository plans. {% data reusables.gated-features.more-info %}
+
+{% endif %}
 
 ## 使用制限
 
@@ -65,15 +70,19 @@ There are some limits on {% data variables.product.prodname_actions %} usage whe
 使用制限に加えて、{% data variables.product.prodname_actions %}を[GitHubの利用規約](/free-pro-team@latest/github/site-policy/github-terms-of-service/)内で使っていることを確認しなければなりません。 {% data variables.product.prodname_actions %}の固有の規約に関する詳しい情報については、[GitHubの追加製品規約](/free-pro-team@latest/github/site-policy/github-additional-product-terms#a-actions-usage)を参照してください。
 {% endif %}
 
-{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
+{% ifversion fpt or ghes > 3.3 or ghec %}
 ## Billing for reusable workflows
 
-If you reuse a workflow, billing is always associated with the caller workflow. For more information see, "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+{% data reusables.actions.reusable-workflows-ghes-beta %}
+
+If you reuse a workflow, billing is always associated with the caller workflow. Assignment of {% data variables.product.prodname_dotcom %}-hosted runners is always evaluated using only the caller's context. The caller cannot use {% data variables.product.prodname_dotcom %}-hosted runners from the called repository.
+
+For more information see, "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
 {% endif %}
 
 ## 成果物とログの保持ポリシー
 
-リポジトリ、Organization、または Enterprise アカウントの成果物とログの保持期間を設定できます。
+You can configure the artifact and log retention period for your repository, organization, or enterprise account.
 
 {% data reusables.actions.about-artifact-log-retention %}
 
@@ -94,7 +103,7 @@ If you reuse a workflow, billing is always associated with the caller workflow. 
 
 ## ワークフローの無効化と有効化
 
-{% data variables.product.prodname_dotcom %} のリポジトリで個々のワークフローを有効化または無効化できます。
+You can enable and disable individual workflows in your repository on {% data variables.product.prodname_dotcom %}.
 
 {% data reusables.actions.scheduled-workflows-disabled %}
 

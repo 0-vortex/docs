@@ -2,7 +2,7 @@
 title: Divulgar u ocultar membresía de la organización
 intro: 'Si te gustaría decirle al mundo a qué organizaciones perteneces, puedes mostrar los avatares de las organizaciones en tu perfil.'
 redirect_from:
-  - /articles/publicizing-or-concealing-organization-membership/
+  - /articles/publicizing-or-concealing-organization-membership
   - /articles/publicizing-or-hiding-organization-membership
   - /github/setting-up-and-managing-your-github-user-account/publicizing-or-hiding-organization-membership
   - /github/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/publicizing-or-hiding-organization-membership
@@ -21,7 +21,7 @@ shortTitle: Mostrar u ocultar la membrecía
 ## Cambiar la visibilidad de la membresía de tu organización
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 4. Ubica tu nombre de usuario en la lista de miembros. Si la lista es grande, puedes buscar tu nombre de usuario en la casilla de búsqueda. ![Casilla de búsqueda de miembro de la organización](/assets/images/help/organizations/member-search-box.png)
 5. En el menú a la derecha de tu nombre de usuario, elige una nueva opción de visibilidad:

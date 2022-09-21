@@ -1,11 +1,10 @@
 ---
 title: 企业中的角色
 intro: 企业中的每个人都是企业的成员。 要控制对企业的设置和数据的访问权限，您可以为企业成员分配不同的角色。
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/roles-in-an-enterprise
   - /github/setting-up-and-managing-your-enterprise-account/roles-for-an-enterprise-account
-  - /articles/permission-levels-for-a-business-account/
+  - /articles/permission-levels-for-a-business-account
   - /articles/roles-for-an-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise
 versions:
@@ -23,7 +22,7 @@ topics:
 {% data reusables.enterprise-accounts.enterprise-administrators %}
 
 {% ifversion ghec %}
-如果您的企业没有使用 {% data variables.product.prodname_emus %}，您可以邀请他人使用他们控制的 {% data variables.product.product_name %} 用户帐户来管理角色。 更多信息请参阅“[邀请人们管理您的企业](/github/setting-up-and-managing-your-enterprise/inviting-people-to-manage-your-enterprise)”。
+如果您的企业没有使用 {% data variables.product.prodname_emus %}，您可以邀请他人使用他们控制的 {% data variables.product.product_name %} 用户帐户来管理角色。 For more information, see "[Inviting people to manage your enterprise](/github/setting-up-and-managing-your-enterprise/inviting-people-to-manage-your-enterprise)."
 
 在使用 {% data variables.product.prodname_emus %} 的企业中，必须通过身份提供商预配新所有者和成员。 企业所有者和组织所有者不能使用 {% data variables.product.prodname_dotcom %} 向企业添加新成员或所有者。 您可以使用 IdP 选择成员的企业角色，它不能在 {% data variables.product.prodname_dotcom %} 上更改。 您可以在 {% data variables.product.prodname_dotcom %} 上选择成员在组织中的角色。 更多信息请参阅“[关于 {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)”。
 {% else %}
@@ -42,7 +41,7 @@ topics:
 
 企业所有者无法访问组织设置或内容，除非将其设为组织所有者或授予直接访问组织所拥有仓库的权限。 同样，除非您将其设为企业所有者，否则企业中的组织所有者无权访问企业。
 
-企业所有者仅在他们是企业中至少一个组织的所有者或成员时才可使用许可证。 {% ifversion ghec %}企业所有者必须在 {% data variables.product.prodname_dotcom %} 上拥有个人帐户。{% endif %} 作为最佳实践，我们建议只将少数人设为公司的企业所有者，以降低业务风险。
+企业所有者仅在他们是企业中至少一个组织的所有者或成员时才可使用许可证。 Even if an enterprise owner has a role in multiple organizations, they will consume a single license. {% ifversion ghec %}企业所有者必须在 {% data variables.product.prodname_dotcom %} 上拥有个人帐户。{% endif %} 作为最佳实践，我们建议只将少数人设为公司的企业所有者，以降低业务风险。
 
 ## 企业成员
 

@@ -51,7 +51,7 @@ shortTitle: 禁用或限制操作
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions %}
 1. 在 **Policies（策略）**下，选择 **Allow select actions（允许选择操作）**并将所需操作添加到列表中。
-   {%- ifversion ghes %}
+   {%- ifversion ghes > 3.0 %}
    ![添加操作到允许列表](/assets/images/help/organizations/actions-policy-allow-list.png)
    {%- else %}
    ![添加操作到允许列表](/assets/images/enterprise/github-ae/organizations/actions-policy-allow-list.png)
@@ -78,6 +78,10 @@ shortTitle: 禁用或限制操作
 
 {% data reusables.github-actions.private-repository-forks-overview %}
 
+{% ifversion ghec or ghae or ghes %}如果对企业禁用了某个策略，则无法对组织启用该策略。{% endif %} 如果对组织禁用了某个策略，则无法对仓库启用该策略。 如果组织启用了某个策略，则可以对个别仓库禁用该策略。
+
+{% data reusables.github-actions.private-repository-forks-options %}
+
 ### 为组织配置私有复刻策略
 
 {% data reusables.profile.access_org %}
@@ -86,7 +90,7 @@ shortTitle: 禁用或限制操作
 {% data reusables.github-actions.private-repository-forks-configure %}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ## 为您的组织设置 `GITHUB_TOKENN` 的权限
 
 {% data reusables.github-actions.workflow-permissions-intro %}

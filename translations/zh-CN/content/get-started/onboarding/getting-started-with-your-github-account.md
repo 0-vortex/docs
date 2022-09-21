@@ -145,7 +145,7 @@ You can enable {% data variables.product.prodname_discussions %} for your reposi
 {% data reusables.getting-started.customizing-and-automating %}
 
 {% ifversion fpt or ghec %}
-### 1. Using {% data variables.product.prodname_marketplace %}
+### 1. 使用 {% data variables.product.prodname_marketplace %}
 {% data reusables.getting-started.marketplace %}
 {% endif %}
 ### {% ifversion fpt or ghec %}2.{% else %}1.{% endif %} Using the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API
@@ -172,24 +172,28 @@ A large part of building securely is maintaining your project's dependencies to 
 For more information, see "[Securing your software supply chain](/code-security/supply-chain-security)."
 {% endif %}
 
-## Part 6: Participating in {% data variables.product.prodname_dotcom %}'s community
+## 第 6 部分：参与 {% data variables.product.prodname_dotcom %} 的社区
 
 {% data reusables.getting-started.participating-in-community %}
 
-### 1. Contributing to open source projects
+### 1. 为开源项目做贡献
 {% data reusables.getting-started.open-source-projects %}
 
 ### 2. Interacting with {% data variables.product.prodname_gcf %}
 {% data reusables.support.ask-and-answer-forum %}
 
-### 3. Learning with {% data variables.product.prodname_learning %}
+### 3. Reading about {% data variables.product.product_name %} on {% data variables.product.prodname_docs %}
+
+{% data reusables.docs.you-can-read-docs-for-your-product %}
+
+### 4. Learning with {% data variables.product.prodname_learning %}
 {% data reusables.getting-started.learning-lab %}
 
 {% ifversion fpt or ghec %}
-### 4. Supporting the open source community
+### 5. Supporting the open source community
 {% data reusables.getting-started.sponsors %}
 
-### 5. 联系 {% data variables.contact.github_support %}
+### 6. 联系 {% data variables.contact.github_support %}
 {% data reusables.getting-started.contact-support %}
 
 {% ifversion fpt %}

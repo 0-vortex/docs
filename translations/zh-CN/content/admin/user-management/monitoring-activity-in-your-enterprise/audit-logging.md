@@ -2,7 +2,7 @@
 title: 审核日志
 intro: '{% data variables.product.product_name %} 会保留已审计 {% ifversion ghes %} 系统、{% endif %}用户、组织和仓库事件的日志。 日志可用于调试以及内部和外部合规。'
 redirect_from:
-  - /enterprise/admin/articles/audit-logging/
+  - /enterprise/admin/articles/audit-logging
   - /enterprise/admin/installation/audit-logging
   - /enterprise/admin/user-management/audit-logging
   - /admin/user-management/audit-logging
@@ -26,7 +26,7 @@ topics:
 {% ifversion ghes %}
 ## 系统事件
 
-所有经过审核的系统事件（包括所有推送和拉取）都会记录到 `/var/log/github/audit.log` 中。 日志每 24 小时自动轮换一次，并会保留七天。
+所有审核的系统事件都将记录到 `/var/log/github/audit.log`。 日志每 24 小时自动轮换一次，并会保留七天。
 
 支持包中包含系统日志。 更多信息请参阅“[向 {% data variables.product.prodname_dotcom %} Support 提供数据](/admin/enterprise-support/providing-data-to-github-support)”。
 
